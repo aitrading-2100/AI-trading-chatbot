@@ -1,0 +1,23 @@
+ai_trading_chatbot_enterprise/
+│
+├── core/                     # Core intelligence
+│   ├── brain.py
+│   ├── ml_nervous_system.py
+│   ├── replicant.py
+│   ├── swarm_manager.py
+│   └── security.py
+│
+├── infra/                    # Infrastructure
+│   ├── rpc_manager.py
+│   ├── docker-compose.yml
+│   ├── Dockerfile
+│   └── k8s.yaml
+│
+├── monitoring/               # Monitoring + Dashboard
+│   ├── dashboard.py
+│   └── grafana_dashboard.json
+│
+├── main.py                   # Entry point
+├── requirements.txt          # Dependencies
+├── README.md                 # Documentation
+└── logs/                     # Audit logs
