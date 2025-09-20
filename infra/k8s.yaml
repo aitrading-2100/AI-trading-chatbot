@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ai-trading-bot
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ai-trading-bot
+  template:
+    metadata:
+      labels:
+        app: ai-trading-bot
+    spec:
+      containers:
+      - name: ai-trading-bot
+        image: your-dockerhub-username/ai-trading-bot:latest
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: trading-bot-secrets
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ai-trading-bot-service
+spec:
+  selector:
+    app: ai-trading-bot
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
